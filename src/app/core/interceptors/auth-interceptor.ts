@@ -8,6 +8,7 @@ export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: 
   const token = authService.getToken();
 
   if (token) {
+    console.log('Adding token to headers:', token);
     const cloned = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`

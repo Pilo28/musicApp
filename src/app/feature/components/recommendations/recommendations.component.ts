@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SpotifyService } from '../../../core/services/spotify.service';
 
 @Component({
   selector: 'app-recommendations',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrl: './recommendations.component.scss'
 })
 export class RecommendationsComponent {
+  recommendations: any[] = [];
+  seedGenres: string = '';
 
+  constructor(private spotifyService: SpotifyService) {}
+
+  ngOnInit(): void {}
+
+  getRecommendations() {
+    this.spotifyService.getRecommendations( this.seedGenres ).subscribe({
+      next: data => {
+        console.log('Recommendations:', data);
+        this.recommendations = data.tracks;
+      },
+      error: error => {
+        console.error('Error fetching recommendations', error);
+      }
+    });
+  }
 }

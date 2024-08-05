@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SpotifyService } from '../../../core/services/spotify.service';
 
 @Component({
   selector: 'app-library',
@@ -6,5 +7,46 @@ import { Component } from '@angular/core';
   styleUrl: './library.component.scss'
 })
 export class LibraryComponent {
+  tracks: any[] = [];
+  albums: any[] = [];
+  artists: any[] = [];
 
+  constructor(private spotifyService: SpotifyService) {}
+
+  ngOnInit(): void {
+    this.loadLibrary();
+  }
+
+  loadLibrary() {
+    this.spotifyService.getUserSavedTracks().subscribe({
+      next: data => {
+        console.log('Saved Tracks:', data);
+        this.tracks = data.items;
+      },
+      error: error => {
+        console.error('Error fetching saved tracks', error);
+      }
+    });
+
+    this.spotifyService.getUserSavedAlbums().subscribe({
+      next: data => {
+        console.log('Saved Albums:', data);
+        this.albums = data.items;
+      },
+      error: error => {
+        console.error('Error fetching saved albums', error);
+      }
+    });
+
+    this.spotifyService.getUserFollowedArtists().subscribe({
+      next: data => {
+        console.log('Followed Artists:', data);
+        this.artists = data.artists.items;
+      },
+      error: error => {
+        console.error('Error fetching followed artists', error);
+      }
+    });
+  }
 }
+

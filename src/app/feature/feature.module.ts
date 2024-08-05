@@ -10,6 +10,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { SearchComponent } from './components/search/search.component';
 import { LibraryComponent } from './components/library/library.component';
 import { RecommendationsComponent } from './components/recommendations/recommendations.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RecommendationsComponent } from './components/recommendations/recommend
   imports: [
     CommonModule,
     FeatureRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class FeatureModule { }

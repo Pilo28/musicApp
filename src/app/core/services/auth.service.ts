@@ -25,14 +25,17 @@ export class AuthService {
   }
 
   login() {
-    const url = `${this.authEndpoint}?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&response_type=token&scope=user-read-private user-read-email`;
+    const scopes = [
+      'user-read-private',
+      'user-read-email',
+      'user-read-playback-state',
+      'user-read-currently-playing',
+      'user-library-read',
+      'user-follow-read'
+    ].join(' ');
+  
+    const url = `${this.authEndpoint}?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&response_type=token&scope=${encodeURIComponent(scopes)}`;
     window.location.href = url;
-  }
-
-  logout() {
-    this.token = '';
-    localStorage.removeItem('spotifyToken');
-    window.location.href = 'https://www.spotify.com/logout/';
   }
   
 
@@ -42,6 +45,15 @@ export class AuthService {
   }
 
   getToken() {
-    return this.token || localStorage.getItem('spotifyToken');
+    const token = this.token || localStorage.getItem('spotifyToken');
+    console.log('Token retrieved:', token); // Imprimir el token cuando se obtenga
+    return token;
+  }
+
+  
+  logout() {
+    this.token = '';
+    localStorage.removeItem('spotifyToken');
+    window.location.href = 'https://www.spotify.com/logout/';
   }
 }
