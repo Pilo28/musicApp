@@ -18,13 +18,24 @@ export class SearchComponent {
     if (this.query) {
       this.spotifyService.search(this.query).subscribe({
         next: data => {
-          console.log('Search Results:', data); // Imprimir los resultados de búsqueda
-          this.results = data.tracks.items; // Puedes ajustar esto según lo que desees mostrar
+          console.log('Search Results:', data);
+          this.results = data.tracks.items;
         },
         error: error => {
           console.error('Error fetching search results', error);
         }
       });
     }
+  }
+
+  playTrack(trackUri: string) {
+    this.spotifyService.playTrack(trackUri).subscribe({
+      next: () => {
+        console.log(`Playing track: ${trackUri}`);
+      },
+      error: error => {
+        console.error('Error playing track', error);
+      }
+    });
   }
 }

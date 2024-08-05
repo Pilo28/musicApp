@@ -31,7 +31,8 @@ export class AuthService {
       'user-read-playback-state',
       'user-read-currently-playing',
       'user-library-read',
-      'user-follow-read'
+      'user-follow-read',
+      'streaming'
     ].join(' ');
   
     const url = `${this.authEndpoint}?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&response_type=token&scope=${encodeURIComponent(scopes)}`;

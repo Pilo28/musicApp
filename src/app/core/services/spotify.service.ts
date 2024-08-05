@@ -57,4 +57,10 @@ export class SpotifyService {
       }
     });
   }
+
+  playTrack(trackUri: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/me/player/play`, {
+      uris: [trackUri]
+    });
+  }
 }
