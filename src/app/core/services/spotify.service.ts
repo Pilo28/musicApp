@@ -25,6 +25,10 @@ export class SpotifyService {
     return this.http.get(`${this.apiUrl}/me/playlists`);
   }
 
+  getPlaylistTracks(playlistId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/playlists/${playlistId}/tracks`);
+  }
+
   search(query: string, type: string = 'track,artist,album'): Observable<any> {
     return this.http.get(`${this.apiUrl}/search`, {
       params: {

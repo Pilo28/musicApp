@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../../core/services/spotify.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SpotifyService } from '../../../core/services/spotify.service';
   templateUrl: './library.component.html',
   styleUrl: './library.component.scss'
 })
-export class LibraryComponent {
+export class LibraryComponent implements OnInit {
   tracks: any[] = [];
   albums: any[] = [];
   artists: any[] = [];
@@ -45,6 +45,17 @@ export class LibraryComponent {
       },
       error: error => {
         console.error('Error fetching followed artists', error);
+      }
+    });
+  }
+
+  playTrack(trackUri: string) {
+    this.spotifyService.playTrack(trackUri).subscribe({
+      next: () => {
+        console.log(`Playing track: ${trackUri}`);
+      },
+      error: error => {
+        console.error('Error playing track', error);
       }
     });
   }
