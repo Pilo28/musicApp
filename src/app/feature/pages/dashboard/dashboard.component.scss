@@ -1,0 +1,20 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+app-now-playing, app-playlist, app-search, app-library, app-recommendations {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
