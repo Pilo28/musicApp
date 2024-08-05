@@ -15,13 +15,24 @@ export class RecommendationsComponent {
   ngOnInit(): void {}
 
   getRecommendations() {
-    this.spotifyService.getRecommendations( this.seedGenres ).subscribe({
+    this.spotifyService.getRecommendations(this.seedGenres).subscribe({
       next: data => {
         console.log('Recommendations:', data);
         this.recommendations = data.tracks;
       },
       error: error => {
         console.error('Error fetching recommendations', error);
+      }
+    });
+  }
+
+  playTrack(trackUri: string) {
+    this.spotifyService.playTrack(trackUri).subscribe({
+      next: () => {
+        console.log(`Playing track: ${trackUri}`);
+      },
+      error: error => {
+        console.error('Error playing track', error);
       }
     });
   }

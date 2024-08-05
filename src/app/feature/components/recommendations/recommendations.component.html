@@ -1,16 +1,19 @@
 <div class="recommendations-container">
-    <h2>Get Recommendations</h2>
-    <input [(ngModel)]="seedGenres" placeholder="Seed Genres (comma separated)" />
+  <div class="search-container">
+    <input [(ngModel)]="seedGenres" placeholder="Enter seed genres (comma separated)" />
     <button (click)="getRecommendations()">Get Recommendations</button>
   </div>
-  
+
   <div *ngIf="recommendations.length > 0">
     <h2>Recommendations</h2>
     <ul>
-      <li *ngFor="let track of recommendations">
-        <img [src]="track.album.images[0]?.url" alt="Track Image" />
-        <p>{{ track.name }} by {{ track.artists[0].name }}</p>
+      <li *ngFor="let track of recommendations" (click)="playTrack(track.uri)">
+        <img [src]="track.album.images[0]?.url" alt="Album Art" />
+        <p>{{ track.name }} - {{ track.artists[0]?.name }}</p>
       </li>
     </ul>
   </div>
-  
+  <ng-template #noRecommendations>
+    <p>No recommendations found.</p>
+  </ng-template>
+</div>
