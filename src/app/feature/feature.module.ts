@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FeatureRoutingModule } from './feature-routing.module';
-import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CallbackComponent } from './pages/callback/callback.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    DashboardComponent,
+    CallbackComponent
   ],
   imports: [
     CommonModule,
-    FeatureRoutingModule
+    FeatureRoutingModule,
+    SharedModule
   ]
 })
 export class FeatureModule { }
