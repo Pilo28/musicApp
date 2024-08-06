@@ -1,10 +1,4 @@
-
-<div *ngIf="!user" class="login-container">
-    <button (click)="login()">Login with Spotify</button>
-</div>
-  
-  
-<div *ngIf="user" class="header-container">
+<div class="header-container">
     <div class="header-content">
       <div class="welcome-message">
         <h1>Welcome, {{ user.display_name }}</h1>

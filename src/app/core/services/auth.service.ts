@@ -47,7 +47,6 @@ export class AuthService {
 
   getToken() {
     const token = this.token || localStorage.getItem('spotifyToken');
-    console.log('Token retrieved:', token); // Imprimir el token cuando se obtenga
     return token;
   }
 
