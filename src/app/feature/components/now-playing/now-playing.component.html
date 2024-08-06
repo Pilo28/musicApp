@@ -1,0 +1,6 @@
+<div *ngIf="nowPlaying">
+    <h2>Now Playing</h2>
+    <p>{{ nowPlaying.item.name }} by {{ nowPlaying.item.artists[0].name }}</p>
+    <img [src]="nowPlaying.item.album.images[0].url" alt="Album Cover" />
+</div>
+  

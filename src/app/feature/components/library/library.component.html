@@ -1,0 +1,25 @@
+<div class="library-container">
+  <h2>Saved Tracks</h2>
+  <ul>
+    <li *ngFor="let track of tracks" (click)="playTrack(track.track.uri)">
+      <img [src]="track.track.album.images[0]?.url" alt="Album Cover" />
+      <p>{{ track.track.name }} by {{ track.track.artists[0].name }}</p>
+    </li>
+  </ul>
+
+  <h2>Saved Albums</h2>
+  <ul>
+    <li *ngFor="let album of albums">
+      <img [src]="album.album.images[0]?.url" alt="Album Cover" />
+      <p>{{ album.album.name }} by {{ album.album.artists[0].name }}</p>
+    </li>
+  </ul>
+
+  <h2>Followed Artists</h2>
+  <ul>
+    <li *ngFor="let artist of artists">
+      <img [src]="artist.images[0]?.url" alt="Artist Image" />
+      <p>{{ artist.name }}</p>
+    </li>
+  </ul>
+</div>

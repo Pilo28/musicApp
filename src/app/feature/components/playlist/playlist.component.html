@@ -1,0 +1,12 @@
+<div *ngIf="playlists.length > 0; else noPlaylists">
+  <h2>Your Playlists</h2>
+  <ul>
+    <li *ngFor="let playlist of playlists" (click)="playFirstTrackInPlaylist(playlist)">
+      <img [src]="playlist.images[0]?.url" alt="Playlist Image" />
+      <p>{{ playlist.name }}</p>
+    </li>
+  </ul>
+</div>
+<ng-template #noPlaylists>
+  <p>No playlists found.</p>
+</ng-template>
