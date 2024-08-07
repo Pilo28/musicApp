@@ -1,6 +1,6 @@
 <div class="search-container">
   <input [(ngModel)]="query" placeholder="Search for songs, artists, albums..." />
-  <button (click)="search()">Search</button>
+  <app-button label="Search" (buttonClick)="search()"></app-button>
 </div>
 
 <div *ngIf="results.length > 0">

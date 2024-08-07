@@ -4,8 +4,8 @@
         <h1>Welcome, {{ user.display_name }}</h1>
         <img *ngIf="user.images && user.images.length" [src]="user.images[0].url" alt="User Avatar" class="user-avatar" />
       </div>
-      <div class="actions">
-        <button (click)="logout()">Logout</button>
+      <div>
+        <app-button label="Logout" (buttonClick)="logout()"></app-button>
       </div>
     </div>
 </div>
