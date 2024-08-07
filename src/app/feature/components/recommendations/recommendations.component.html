@@ -3,7 +3,8 @@
 
     <app-search-input 
       [(value)]="seedGenres" 
-      placeholder="Enter seed genres (comma separated)">
+      placeholder="Enter seed genres (comma separated)"
+      (enterPressed)="getRecommendations()">
     </app-search-input>
     
     <app-button label="Get Recommendations" (buttonClick)="getRecommendations()"></app-button>

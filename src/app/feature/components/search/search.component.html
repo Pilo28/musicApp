@@ -2,7 +2,8 @@
 
   <app-search-input 
     [(value)]="query" 
-    placeholder="Search for songs, artists, albums...">
+    placeholder="Search for songs, artists, albums..."
+    (enterPressed)="search()">
   </app-search-input>
 
   <app-button label="Search" (buttonClick)="search()"></app-button>

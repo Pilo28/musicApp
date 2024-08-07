@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SpotifyService } from '../../../core/services/spotify.service';
 import { interval, Subscription } from 'rxjs';
-import { NowPlaying } from '../../../core/interfaces/now-playing.interface'; // Asegúrate de crear esta interfaz
+import { NowPlaying } from '../../../core/interfaces/now-playing.interface'; 
 
 @Component({
   selector: 'app-now-playing',
