@@ -1,6 +1,11 @@
 <div class="recommendations-container">
   <div class="search-container">
-    <input [(ngModel)]="seedGenres" placeholder="Enter seed genres (comma separated)" />
+
+    <app-search-input 
+      [(value)]="seedGenres" 
+      placeholder="Enter seed genres (comma separated)">
+    </app-search-input>
+    
     <app-button label="Get Recommendations" (buttonClick)="getRecommendations()"></app-button>
   </div>
 

@@ -37,7 +37,7 @@ export class NowPlayingComponent implements OnInit, OnDestroy {
   }
 
   startPolling(): void {
-    const pollingInterval = 5000;   
+    const pollingInterval = 750;   
     this.intervalSubscription = interval(pollingInterval).subscribe(() => {
       this.loadNowPlaying();
     });

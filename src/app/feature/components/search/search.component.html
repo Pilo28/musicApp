@@ -1,5 +1,10 @@
 <div class="search-container">
-  <input [(ngModel)]="query" placeholder="Search for songs, artists, albums..." />
+
+  <app-search-input 
+    [(value)]="query" 
+    placeholder="Search for songs, artists, albums...">
+  </app-search-input>
+
   <app-button label="Search" (buttonClick)="search()"></app-button>
 </div>
 
