@@ -1,7 +1,5 @@
 // src/app/core/auth.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { DecryptionService } from './decryption.service';
 
@@ -15,8 +13,6 @@ export class AuthService {
   private token?: string;
 
   constructor(
-    private http: HttpClient, 
-    private router: Router,
     private decryptionService: DecryptionService
   ) {
     const encryptedClientId = environment.spotifyClientId; 
