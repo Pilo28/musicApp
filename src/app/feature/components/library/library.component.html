@@ -1,5 +1,5 @@
 <div class="library-container">
-  <h2 *ngIf="tracks.length > 0">Saved Tracks</h2>
+  <h2 *ngIf="tracks.length > 0">{{ 'saved_tracks' | translate }}</h2>
   <ul>
     <app-card *ngFor="let track of tracks"
               [imageUrl]="track.track.album.images[0].url"
@@ -9,7 +9,7 @@
     </app-card>
   </ul>
 
-  <h2 *ngIf="albums.length > 0">Saved Albums</h2>
+  <h2 *ngIf="albums.length > 0">{{ 'saved_albums' | translate }}</h2>
   <ul>
     <app-card *ngFor="let album of albums"
               [imageUrl]="album.album.images[0].url"
@@ -18,7 +18,7 @@
     </app-card>
   </ul>
 
-  <h2 *ngIf="artists.length > 0">Followed Artists</h2>
+  <h2 *ngIf="artists.length > 0">{{ 'followed_artists' | translate }}</h2>
   <ul>
     <app-card *ngFor="let artist of artists"
               [imageUrl]="artist.images[0].url"

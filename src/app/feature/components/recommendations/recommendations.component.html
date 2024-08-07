@@ -3,15 +3,15 @@
 
     <app-search-input 
       [(value)]="seedGenres" 
-      placeholder="Enter seed genres (comma separated)"
+      [placeholder]="'enter_seed_genres' | translate"
       (enterPressed)="getRecommendations()">
     </app-search-input>
     
-    <app-button label="Get Recommendations" (buttonClick)="getRecommendations()"></app-button>
+    <app-button label="get_recommendations" (buttonClick)="getRecommendations()"></app-button>
   </div>
 
   <div *ngIf="recommendations.length > 0">
-    <h2>Recommendations</h2>
+    <h2>{{ 'recommendations' | translate }}</h2>
     <ul>
       <app-card *ngFor="let track of recommendations"
                 [imageUrl]="track.album.images[0].url"
@@ -23,6 +23,6 @@
   </div>
   
   <ng-template #noRecommendations>
-    <p>No recommendations found.</p>
+    <p>{{ 'no_recommendations_found' | translate }}</p>
   </ng-template>
 </div>

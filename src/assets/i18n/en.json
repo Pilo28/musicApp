@@ -1,0 +1,17 @@
+{
+   "welcome": "Welcome",
+  "now_playing": "Now Playing",
+  "your_playlists": "Your Playlists",
+  "no_playlists_found": "No playlists found",
+  "recommendations": "Recommendations",
+  "no_recommendations_found": "No recommendations found",
+  "enter_seed_genres": "Enter seed genres (comma separated)",
+  "search_placeholder": "Search for songs, artists, albums...",
+  "search_results": "Search Results",
+  "saved_tracks": "Saved Tracks",
+  "saved_albums": "Saved Albums",
+  "followed_artists": "Followed Artists",
+  "search": "Search",
+  "logout": "Logout",
+  "get_recommendations": "Get Recommendations"
+}

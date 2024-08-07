@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subject, takeUntil } from "rxjs";
 import { AuthService } from "../../../core/services/auth.service";
 import { SpotifyService } from "../../../core/services/spotify.service";
-import { Router } from "@angular/router";
+import { TranslationService } from "../../../core/services/translation.service";
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService, 
               private spotifyService: SpotifyService,
-              private router: Router) {}
+              private translationService: TranslationService) {}
 
   ngOnInit(): void {
     this.loadUserProfile();
@@ -37,5 +37,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  changeLanguage(lang: string) {
+    this.translationService.switchLanguage(lang);
   }
 }

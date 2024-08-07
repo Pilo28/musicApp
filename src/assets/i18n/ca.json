@@ -1,0 +1,18 @@
+{
+    "welcome": "Benvingut",
+    "now_playing": "Ara Sona",
+    "your_playlists": "Les teves llistes de reproducció",
+    "no_playlists_found": "No s'han trobat llistes de reproducció",
+    "recommendations": "Recomanacions",
+    "no_recommendations_found": "No s'han trobat recomanacions",
+    "enter_seed_genres": "Introdueix gèneres llavor (separats per comes)",
+    "search_placeholder": "Cerca cançons, artistes, àlbums...",
+    "search_results": "Resultats de cerca",
+    "saved_tracks": "Pistes guardades",
+    "saved_albums": "Àlbums guardats",
+    "followed_artists": "Artistes seguits",
+    "search": "Cercar",
+    "logout": "Tancar sessió",
+    "get_recommendations": "Obtenir recomanacions"
+}
+  

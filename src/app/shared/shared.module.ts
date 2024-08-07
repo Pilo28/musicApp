@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +16,8 @@ import { SearchInputComponent } from './components/search-input/search-input.com
     SearchInputComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   exports: [HeaderComponent, CardComponent, ButtonComponent, SearchInputComponent]
 })

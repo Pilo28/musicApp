@@ -1,5 +1,5 @@
 <div *ngIf="playlists.length > 0; else noPlaylists" class="playlist-container">
-  <h2>Your Playlists</h2>
+  <h2>{{ 'your_playlists' | translate }}</h2>
   <ul>
     <app-card *ngFor="let playlist of playlists"
               [imageUrl]="playlist.images[0].url"
@@ -9,5 +9,5 @@
   </ul>
 </div>
 <ng-template #noPlaylists>
-  <p>No playlists found.</p>
+  <p>{{ 'no_playlists_found' | translate }}</p>
 </ng-template>

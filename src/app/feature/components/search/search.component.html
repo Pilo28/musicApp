@@ -2,15 +2,15 @@
 
   <app-search-input 
     [(value)]="query" 
-    placeholder="Search for songs, artists, albums..."
+    [placeholder]="'search_placeholder' | translate"
     (enterPressed)="search()">
   </app-search-input>
 
-  <app-button label="Search" (buttonClick)="search()"></app-button>
+  <app-button label="search" (buttonClick)="search()"></app-button>
 </div>
 
 <div *ngIf="results.length > 0">
-  <h2>Search Results</h2>
+  <h2>{{ 'search_results' | translate }}</h2>
   <ul>
     <app-card *ngFor="let result of results"
               [imageUrl]="result.album.images[0].url"
