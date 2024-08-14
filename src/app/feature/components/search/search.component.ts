@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SpotifyService } from '../../../core/services/spotify.service';
+import { SearchResult, Track } from '../../../core/interfaces/search-result.interface';
 
 @Component({
   selector: 'app-search',
@@ -8,32 +9,32 @@ import { SpotifyService } from '../../../core/services/spotify.service';
 })
 export class SearchComponent {
   query: string = '';
-  results: any[] = [];
+  results: Track[] = [];
 
   constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {}
 
-  search() {
+  search(): void {
     if (this.query) {
       this.spotifyService.search(this.query).subscribe({
-        next: data => {
+        next: (data: SearchResult) => {
           console.log('Search Results:', data);
           this.results = data.tracks.items;
         },
-        error: error => {
+        error: (error: any) => {
           console.error('Error fetching search results', error);
         }
       });
     }
   }
 
-  playTrack(trackUri: string) {
+  playTrack(trackUri: string): void {
     this.spotifyService.playTrack(trackUri).subscribe({
       next: () => {
         console.log(`Playing track: ${trackUri}`);
       },
-      error: error => {
+      error: (error: any) => {
         console.error('Error playing track', error);
       }
     });

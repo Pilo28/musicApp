@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../../core/services/spotify.service';
+import { PlaylistTrack } from '../../../core/interfaces/playlist-track.interface';
+import { Playlist } from '../../../core/interfaces/playlist.interface';
 
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
-  styleUrl: './playlist.component.scss'
+  styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
-  playlists: any[] = [];
+  
+  playlists: Playlist[] = [];
 
   constructor(private spotifyService: SpotifyService) {}
 
@@ -17,7 +20,7 @@ export class PlaylistComponent implements OnInit {
 
   loadPlaylists() {
     this.spotifyService.getUserPlaylists().subscribe({
-      next: data => {
+      next: (data) => {
         console.log('Playlists:', data); 
         this.playlists = data.items;
       },
@@ -38,9 +41,9 @@ export class PlaylistComponent implements OnInit {
     });
   }
 
-  playFirstTrackInPlaylist(playlist: any) {
+  playFirstTrackInPlaylist(playlist: Playlist) {
     this.spotifyService.getPlaylistTracks(playlist.id).subscribe({
-      next: data => {
+      next: (data) => {
         const tracks = data.items;
         if (tracks && tracks.length > 0) {
           const firstTrackUri = tracks[0].track.uri;

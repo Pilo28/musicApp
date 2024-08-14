@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../../core/services/spotify.service';
+import { SavedTracks } from '../../../core/interfaces/saved-tracks.interface';
+import { SavedAlbums } from '../../../core/interfaces/saved-albums.interface';
+import { FollowedArtists } from '../../../core/interfaces/followed-artists.interface';
 
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
-  styleUrl: './library.component.scss'
+  styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent implements OnInit {
-  tracks: any[] = [];
-  albums: any[] = [];
-  artists: any[] = [];
+  tracks: SavedTracks['items'] = [];
+  albums: SavedAlbums['items'] = [];
+  artists: FollowedArtists['artists']['items'] = [];
 
   constructor(private spotifyService: SpotifyService) {}
 
@@ -19,7 +22,7 @@ export class LibraryComponent implements OnInit {
 
   loadLibrary() {
     this.spotifyService.getUserSavedTracks().subscribe({
-      next: data => {
+      next: (data: SavedTracks) => {
         console.log('Saved Tracks:', data);
         this.tracks = data.items;
       },
@@ -29,7 +32,7 @@ export class LibraryComponent implements OnInit {
     });
 
     this.spotifyService.getUserSavedAlbums().subscribe({
-      next: data => {
+      next: (data: SavedAlbums) => {
         console.log('Saved Albums:', data);
         this.albums = data.items;
       },
@@ -39,7 +42,7 @@ export class LibraryComponent implements OnInit {
     });
 
     this.spotifyService.getUserFollowedArtists().subscribe({
-      next: data => {
+      next: (data: FollowedArtists) => {
         console.log('Followed Artists:', data);
         this.artists = data.artists.items;
       },
@@ -60,4 +63,3 @@ export class LibraryComponent implements OnInit {
     });
   }
 }
-

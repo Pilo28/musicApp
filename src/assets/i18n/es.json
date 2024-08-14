@@ -1,0 +1,17 @@
+{
+  "welcome": "Bienvenido",
+  "now_playing": "Reproduciendo ahora",
+  "your_playlists": "Tus listas de reproducción",
+  "no_playlists_found": "No se encontraron listas de reproducción",
+  "recommendations": "Recomendaciones",
+  "no_recommendations_found": "No se encontraron recomendaciones",
+  "enter_seed_genres": "Introduce géneros semilla (separados por comas)",
+  "search_placeholder": "Buscar canciones, artistas, álbumes...",
+  "search_results": "Resultados de búsqueda",
+  "saved_tracks": "Pistas guardadas",
+  "saved_albums": "Álbumes guardados",
+  "followed_artists": "Artistas seguidos",
+  "search": "Buscar",
+  "logout": "Cerrar sesión",
+  "get_recommendations": "Obtener recomendaciones"
+}

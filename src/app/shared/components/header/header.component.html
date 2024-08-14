@@ -1,12 +1,19 @@
 <div class="header-container">
-    <div class="header-content">
+  <div class="header-content">
       <div class="welcome-message">
-        <h1>Welcome, {{ user.display_name }}</h1>
-        <img *ngIf="user.images && user.images.length" [src]="user.images[0].url" alt="User Avatar" class="user-avatar" />
+          <h1>{{ 'welcome' | translate }}, {{ user.display_name }}</h1>
+          <img *ngIf="user.images && user.images.length" [src]="user.images[0].url" alt="User Avatar" class="user-avatar" />
       </div>
+      
       <div class="actions">
-        <button (click)="logout()">Logout</button>
+          <div class="flags">
+              <img src="assets/flags/en-flag.png" alt="English" (click)="changeLanguage('en')" />
+              <img src="assets/flags/es-flag.png" alt="Español" (click)="changeLanguage('es')" />
+              <img src="assets/flags/ca-flag.png" alt="Català" (click)="changeLanguage('ca')" />
+          </div>
+          <div class="logout-button">
+              <app-button label="logout" (buttonClick)="logout()"></app-button>
+          </div>
       </div>
-    </div>
+  </div>
 </div>
-  
